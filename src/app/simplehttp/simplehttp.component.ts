@@ -27,4 +27,26 @@ export class SimplehttpComponent implements OnInit {
       console.log(err);
     });
   }
+
+  makePostRequest(): void {
+    const body = {
+      body: 'testing',
+      title: 'testing post',
+      userId: 1
+    };
+
+    this.loading = true;
+    this.http.post('http://jsonplaceholder.typicode.com/posts', JSON.stringify(body)).subscribe((res: Response) => {
+      this.data = res.json();
+      this.loading = false;
+    });
+  }
+
+  makeDeleteRequest(): void {
+    this.loading = true;
+    this.http.delete('http://jsonplaceholder.typicode.com/posts/1').subscribe((res: Response) => {
+      this.data = res.json();
+      this.loading = false;
+    });
+  }
 }

@@ -1,15 +1,20 @@
-<div class="row">
-  <h2 class="page-header">Simple Http Component</h2>
-  <div class="col-md-12">
-    <div class="form-group">
-      <button type="button" class="btn btn-primary" (click)="makeHttpRequest()">Make Rrquest</button>
+<div class="container">
+  <div class="row">
+    <h2 class="page-header">Simple Http Component</h2>
+    <div class="col-md-12">
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="makeHttpRequest()">Make Rrquest</button>
+        <button type="button" class="btn btn-success" (click)="makePostRequest()">Make Post Rrquest</button>
+        <button type="button" class="btn btn-danger" (click)="makePostRequest()">Make Delete Rrquest</button>
+      </div>
+
+      <div class="form-group" *ngIf="loading">loading...</div>
+
+      <pre *ngIf="data">
+        {{ data | json }}
+      </pre>
+
     </div>
-
-    <div class="form-group" *ngIf="loading">loading...</div>
-
-    <pre *ngIf="data">
-      {{ data | json }}
-    </pre>
-
   </div>
+
 </div>
